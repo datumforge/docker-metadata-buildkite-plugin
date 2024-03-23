@@ -1,14 +1,32 @@
 ---
-name: template-buildkite-plugin
-description: what your plugin does
-author: Datum
-requirements:
-  - if you have requirements
+name: Docker Metadata
+description: Adds docker metadata to the environment
+author: https://github.com/datumforge
+requirements: []
 configuration:
   properties:
-    propertyname:
+    images:
+      type: array
+      description: A list of images to build
+      minimum: 1
+    extra_tags:
+      type: array
+      description: A list of tags to add to the image
+    title:
       type: string
-  required: []
-    # - if any properties are required
-  dependencies:
-    dependencyname: [dep]
+      description: Title of the container build. Will be used as a label
+    licenses:
+      type: string
+      description: A string representation of the list of licenses the container build is licensed under
+    vendor:
+      type: string
+      description: The vendor of the container
+    debug:
+      type: boolean
+      description: Enable debug logging (or not)
+    tag_prefix:
+      type: string
+      description: Prefix to prepend to all tags
+  required:
+    - images
+  additionalProperties: false
