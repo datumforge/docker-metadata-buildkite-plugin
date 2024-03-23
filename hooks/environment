@@ -123,8 +123,8 @@ done
 
 # Output
 ########
-
-export DOCKER_METADATA_DIR=$(mktemp -d)
+DOCKER_METADATA_DIR="$(mktemp -d)"
+export DOCKER_METADATA_DIR
 debug_print "🚨 Plugin metadata will be stored in DOCKER_METADATA_DIR"
 debug_print "🚨 DOCKER_METADATA_DIR: '$DOCKER_METADATA_DIR'"
 
